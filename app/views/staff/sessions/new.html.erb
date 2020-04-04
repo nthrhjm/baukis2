@@ -5,11 +5,11 @@
   <%= form_with model: @form, url: :staff_session do |f| %>
   <div>
     <%= f.label :email, "メールアドレス" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "session_text_field" %>
   </div>
   <div>
     <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "session_text_field" %>
   </div>
   <div>
     <%= f.submit "ログイン" %>

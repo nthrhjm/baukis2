@@ -28,7 +28,8 @@ div#wrapper {
           padding: $moderate 0;
         }
 
-        input[type="text"], input[type="password"] {
+        //input[type="text"], input[type="password"] {
+        .session_text_field {
           padding: $wide;
           width: 400px - $wide * 4;
         }

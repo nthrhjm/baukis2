@@ -1,4 +1,6 @@
 class Staff::SessionsController < Staff::Base
+  skip_before_action :authorize
+
   def new
     # current_staff_member メソッドはStaff/Base.rbで定義
     # ログイン状態しているか？

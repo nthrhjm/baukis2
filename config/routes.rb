@@ -15,7 +15,10 @@ Rails.application.routes.draw do
       root "top#index"
       get "login" => "sessions#new", as: :login
       resource :session, only: [:create, :destroy]
-      resources :staff_members
+      resources :staff_members do
+        resources :staff_events, only: [:index] #特定のstaff_memberの staff_events
+      end
+      resources :staff_events, only: [:index] #全てのstaff_memberのstaff_events
     end
   end
 

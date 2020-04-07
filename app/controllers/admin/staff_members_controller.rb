@@ -36,6 +36,7 @@ class Admin::StaffMembersController < Admin::Base
       render action: "edit"
     end
   end
+
   private def staff_member_params
     params.require(:staff_member).permit(
         :email, :password,
@@ -43,6 +44,7 @@ class Admin::StaffMembersController < Admin::Base
         :start_date, :end_date, :suspended
     )
   end
+
   def destroy
     staff_member = StaffMember.find(params[:id])
     staff_member.destroy!

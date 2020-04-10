@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'bcrypt'
-#gem 'data_validator'
+gem 'date_validator'
 gem 'kaminari'
 gem 'nokogiri'
 gem 'rails-i18n'

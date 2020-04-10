@@ -6,6 +6,7 @@ class Admin::StaffEventsController < Admin::Base
     else
       @events = StaffEvent.order(occurred_at: :desc)
     end
+    @events = @events.includes(:member) #N+1対策
     @events = @events.page(params[:page])
   end
 end

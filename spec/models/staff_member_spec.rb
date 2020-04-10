@@ -47,12 +47,12 @@ RSpec.describe StaffMember, type: :model do
       expect(member).not_to be_valid
     end
     example "長音符を含むfamily_name_kanaは有効" do
-      member = build(:staff_member, email: "エリー")
+      member = build(:staff_member, family_name_kana: "エリー")
       expect(member).to be_valid
     end
     example "他の職員のメールアドレスと重複したemailは無効" do
       member1 = create(:staff_member)
-      member2 = create(:staff_member, email: member1.email)
+      member2 = build(:staff_member, email: member1.email)
       expect(member2).not_to be_valid
     end
   end

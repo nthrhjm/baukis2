@@ -38,4 +38,11 @@ class Staff::CustomersController < Staff::Base
       render action: "edit"
     end
   end
+
+  def destroy
+    customer = Customer.find(params[:id])
+    customer.destroy!
+    flash.notice = "顧客アカウントを削除しました。"
+    redirect_to :staff_customers
+  end
 end

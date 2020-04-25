@@ -14,4 +14,28 @@ class Staff::CustomersController < Staff::Base
   def edit
     @customer_form = Staff::CustomerForm.new(Customer.find(params[:id]))
   end
+
+  def create
+    @customer_form = Staff::CustomerForm.new
+    @customer_form.assign_attributes(params[:form])
+    if @customer_form.save
+      flash.notice = "顧客情報を保存しました。"
+      redirect_to action: "index"
+    else
+      flash.now.alert = "入力に誤りがあります。"
+      render action: "new"
+    end
+  end
+
+  def update
+    @customer_form = Staff::CustomerForm.new(Customer.find(params[:id]))
+    @customer_form.assign_attributes(params[:form])
+    if @customer_form.save
+      flash.notice = "顧客情報を更新しました。"
+      redirect_to action: "index"
+    else
+      flash.new.alert = "入力に誤りがあります。"
+      render action: "edit"
+    end
+  end
 end
